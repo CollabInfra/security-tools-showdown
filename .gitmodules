@@ -1,0 +1,24 @@
+[submodule "iac/tfsec"]
+	path = iac/tfsec
+	url = git@github.com:aquasecurity/tfsec.git
+[submodule "docker/bad-dockerfile"]
+	path = docker/bad-dockerfile
+	url = git@github.com:ianmiell/bad-dockerfile.git
+[submodule "iac/cfngoat"]
+	path = iac/cfngoat
+	url = git@github.com:bridgecrewio/cfngoat.git
+[submodule "iac/terragoat"]
+	path = iac/terragoat
+	url = git@github.com:bridgecrewio/terragoat.git
+[submodule "iac/supplygoat"]
+	path = iac/supplygoat
+	url = git@github.com:bridgecrewio/supplygoat.git
+[submodule "iac/cdkgoat"]
+	path = iac/cdkgoat
+	url = git@github.com:bridgecrewio/cdkgoat.git
+[submodule "iac/kustomizegoat"]
+	path = iac/kustomizegoat
+	url = git@github.com:bridgecrewio/kustomizegoat.git
+[submodule "iac/bicepgoat"]
+	path = iac/bicepgoat
+	url = git@github.com:bridgecrewio/bicepgoat.git
