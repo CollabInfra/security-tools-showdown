@@ -56,3 +56,28 @@ jobs:
         with:
           token: '${{ github.token }}'
           environment: production
+
+      - name: Publish Checkov
+        id: import-scan-checkov
+        uses: ivanamat/defectdojo-import-scan@v1
+        with:
+          token: ${{ secrets.DEFECTOJO_TOKEN }}
+          defectdojo_url: ${{ secrets.DEFECTOJO_URL }}
+          file: reports/checkov.sarif
+          scan_type: SARIF
+          engagement: 1
+
+      - name: Publish Checkov
+        id: import-scan-grype
+        uses: ivanamat/defectdojo-import-scan@v1
+        with:
+          token: ${{ secrets.DEFECTOJO_TOKEN }}
+          defectdojo_url: ${{ secrets.DEFECTOJO_URL }}
+          file: reports/grype-sbom.json
+          scan_type: CycloneDX Scan
+          engagement: 1
+
+      - name: Show response
+        run: |
+          set -e
+          printf '%s\n' '${{ steps.import-scan.outputs.response }}'
