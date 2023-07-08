@@ -67,7 +67,13 @@ jobs:
           scan_type: SARIF
           engagement: 1
 
-      - name: Publish Checkov
+
+      - name: Show response
+        run: |
+          set -e
+          printf '%s\n' '${{ steps.import-scan-checkov.outputs.response }}'
+
+      - name: Publish CycloneDX
         id: import-scan-grype
         uses: ivanamat/defectdojo-import-scan@v1
         with:
@@ -80,4 +86,4 @@ jobs:
       - name: Show response
         run: |
           set -e
-          printf '%s\n' '${{ steps.import-scan.outputs.response }}'
+          printf '%s\n' '${{ steps.import-scan-grype.outputs.response }}'
